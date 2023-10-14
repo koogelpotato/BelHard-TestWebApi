@@ -124,12 +124,12 @@ namespace BelHard_TestWebApi.Controllers
                 return NotFound();
             }
 
-            var emploeeToDelete = await _employeeRepository.GetEmployeeById(employeeId);
+            var employeeToDelete = await _employeeRepository.GetEmployeeById(employeeId);
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if(! await _employeeRepository.DeleteEmployee(emploeeToDelete))
+            if(! await _employeeRepository.DeleteEmployee(employeeToDelete))
             {
                 ModelState.AddModelError("", "Something went wrong when deleting emploee");
             }
